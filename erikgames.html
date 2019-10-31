@@ -1,0 +1,81 @@
+<html>
+<head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<title>erik.games</title>
+<style>
+.copado { margin: 1vh; }
+</style>
+</head>
+<body>
+			<script>
+			$(document).ready(function() {
+				$.ajaxSetup({
+				  headers : {
+					'secret-key' : '$2b$10$MA/3J6MZsGwxXlSf0XUDXuHRIeFRWN4l4LhGNLEVfX95zujc8bKKe'
+				  }
+				});
+				$.getJSON("https://api.jsonbin.io/b/5db798ddae4d046762fc0487/latest", function(json) {
+					const myNode = document.getElementById("gamer");
+					  while (myNode.firstChild) {
+						myNode.removeChild(myNode.firstChild);
+					  }
+					var html = '';
+					$.each(json.projects, function(i, item) {
+						html += "<div class=\"col-md-6 col-lg-4\"><div class=\"card copado\"><div class=\"view overlay\"><img class=\"card-img-top\" src=" + item.image + " alt=\"Card image cap\"><a href=\"#!\"><div class=\"mask rgba-white-slight\"></div></a></div><div class=\"card-body\"><p><h5 class=\"card-title\">" + item.name + "</h5><h6 class=\"card-subtitle mb-2 text-muted\">" + item.category + "</h6> <p class=\"card-text\">" + item.short + "</p><a href=" + item.link + " class=\"btn btn-primary\">" + item.button + "</a></a></p></div></div></div>";
+					});
+					$('.row').append(html);
+				});
+			});
+			</script>
+<div class="container">
+	<div class="row" id="gamer">
+		<div class="col-md-6 col-lg-4">
+			<div class="card copado">
+				<div class="card-body" style="min-height: 40vh;">
+					<div class="d-flex justify-content-center">
+						<div class="spinner-border text-center" role="status" style="margin-top: 15vh;">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<div class="card copado">
+				<div class="card-body" style="min-height: 40vh;">
+					<div class="d-flex justify-content-center">
+						<div class="spinner-border text-center" role="status" style="margin-top: 15vh;">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<div class="card copado">
+				<div class="card-body" style="min-height: 40vh;">
+					<div class="d-flex justify-content-center">
+						<div class="spinner-border text-center" role="status" style="margin-top: 15vh;">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
